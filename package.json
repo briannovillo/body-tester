@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "try": "node index.js",
-    "try-and-watch": "while sleep 1; do npm run try; done"
+    "try-and-watch": "while sleep 0.1; do npm run try; done"
   },
   "author": "Brian Novillo",
   "license": "GNU",

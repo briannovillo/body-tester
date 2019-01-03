@@ -18,7 +18,7 @@ const devices = [
 const randomNumber = Math.floor(Math.random() * devices.length);
 const randomDevice = devices[randomNumber];
 
-const url = 'https://stg.tn.com.ar?'+Date.now();
+const url = 'http://localhost:8302?'+Date.now();
 
 fetch(url, {
         method: 'GET',
@@ -36,11 +36,11 @@ fetch(url, {
         const footerClasses = $('footer').attr('class');
         const linkedCss = $('link[type="text/css"]').toArray().map(tag => tag.attribs.href);
 
-        const consoleColorEval = (bool) => bool ? "\x1b[32m" : "\"\x1b[31m\"";
+        const consoleColorEval = (bool) => bool ? "\x1b[32m" : "\x1b[31m";
 
-        const headerIsOk = () => headerClasses.indexOf(randomDevice.type) > -1;
-        const footerIsOk = () => footerClasses.indexOf(randomDevice.type) > -1;
-        const cssIsOk = () => !!linkedCss.filter(css => css.indexOf(randomDevice.type) > -1);
+        const headerIsOk = headerClasses.indexOf(randomDevice.type) > -1;
+        const footerIsOk = footerClasses.indexOf(randomDevice.type) > -1;
+        const cssIsOk = !!linkedCss.filter(css => css.indexOf(randomDevice.type) > -1);
 
         console.log(consoleColorEval(headerIsOk), "El tag <header> resultante tiene las clases", headerClasses);
         console.log(consoleColorEval(footerIsOk), "El tag <footer> resultante tiene las clases", footerClasses);
