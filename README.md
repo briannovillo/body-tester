@@ -1,6 +1,15 @@
 ```
 npm run install
-npm run try-and-watch
 ```
 
-try-and-watch run a test every second
+# For test using desktop userAgents
+
+```
+npm run try-and-watch-desktop
+```
+
+# For test using mobile userAgents
+
+```
+npm run try-and-watch-desktop
+```
