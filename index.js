@@ -18,7 +18,7 @@ const devices = [
 const randomNumber = Math.floor(Math.random() * devices.length);
 const randomDevice = devices[randomNumber];
 
-const url = 'http://localhost:8302?'+Date.now();
+const url = 'http://localhost:8302/salud?'+Date.now();
 
 fetch(url, {
         method: 'GET',
@@ -28,7 +28,7 @@ fetch(url, {
     })
     .then(res => res.text())
     .then(body => {
-        console.log("Se hizo el request a", url, "con el device:", randomDevice.text);
+        console.log("\x1b[0m Se hizo el request a", url, "con el device:", randomDevice.text);
 
         const $ = cheerio.load(body);
 
@@ -40,7 +40,7 @@ fetch(url, {
 
         const headerIsOk = headerClasses.indexOf(randomDevice.type) > -1;
         const footerIsOk = footerClasses.indexOf(randomDevice.type) > -1;
-        const cssIsOk = !!linkedCss.filter(css => css.indexOf(randomDevice.type) > -1);
+        const cssIsOk = linkedCss.filter(css => css.indexOf(randomDevice.type) > -1).length;
 
         console.log(consoleColorEval(headerIsOk), "El tag <header> resultante tiene las clases", headerClasses);
         console.log(consoleColorEval(footerIsOk), "El tag <footer> resultante tiene las clases", footerClasses);
